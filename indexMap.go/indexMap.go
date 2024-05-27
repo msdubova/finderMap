@@ -1,7 +1,5 @@
 package indexmap
 
-import "fmt"
-
 func IndexMap(slice []string) map[string][]int {
 	var indexedMap = make(map[string][]int)
 
@@ -11,7 +9,6 @@ func IndexMap(slice []string) map[string][]int {
 
 	}
 
-	fmt.Println(indexedMap)
 	return indexedMap
 
 }

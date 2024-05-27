@@ -20,7 +20,7 @@ func Scan() []string {
 		var line = text.Text()
 		Slice = append(Slice, line)
 	}
-	fmt.Println("Довжина зрізу:", len(Slice))
+	// fmt.Println("Довжина зрізу:", len(Slice))
 
 	return Slice
 }

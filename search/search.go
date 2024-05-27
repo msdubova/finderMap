@@ -2,6 +2,8 @@ package search
 
 import (
 	"bufio"
+	indexmap "mapfinder/indexMap.go"
+	"mapfinder/scan"
 	"strings"
 
 	"fmt"
@@ -23,12 +25,14 @@ func Search() {
 
 	key = strings.TrimSpace(key)
 	fmt.Println("Ключ пошуку:", key)
-	// // var text = scan.Scan()
-	// // for _, line := range text {
-	// // 	if strings.Contains(strings.ToLower(line), strings.ToLower(key)) {
-	// // 		fmt.Printf("✅ Строка %v містить ключ %v\n", line, key)
-	// // 	} else {
-	// // 		fmt.Printf("❗️ ❗️ ❗️ Строка %v не містить ключ %v\n", line, key)
-	// // 	}
-	// // }
+	var mapData = indexmap.IndexMap(scan.Scan())
+
+	for line, index := range mapData {
+		if strings.Contains(strings.ToLower(line), strings.ToLower(key)) {
+			fmt.Printf("✅ Слово '%s' знайдено в рядках з індексами: %v\n", key, index)
+		} else {
+			fmt.Printf("❗️ ❗️ ❗️  Слово '%s' не знайдено в рядках з індексами: %v\n", key, index)
+		}
+	}
+
 }

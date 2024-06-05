@@ -3,14 +3,13 @@ package search
 import (
 	"bufio"
 	indexmap "mapfinder/indexMap.go"
-	"mapfinder/scan"
 	"strings"
 
 	"fmt"
 	"os"
 )
 
-func Search() {
+func Search(lines []string) {
 	var key string
 
 	fmt.Println("Який текст шукати?")
@@ -25,7 +24,7 @@ func Search() {
 
 	key = strings.TrimSpace(key)
 	fmt.Println("Ключ пошуку:", key)
-	var mapData = indexmap.IndexMap(scan.Scan())
+	var mapData = indexmap.IndexMap(lines)
 	var result []int
 	for line, index := range mapData {
 		if strings.Contains(strings.ToLower(line), strings.ToLower(key)) {

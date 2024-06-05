@@ -1,9 +1,11 @@
 package main
 
 import (
+	"mapfinder/scan"
 	"mapfinder/search"
 )
 
 func main() {
-	search.Search()
+	key := scan.Scan()
+	search.Search(key)
 }

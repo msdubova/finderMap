@@ -24,17 +24,13 @@ func Search(lines []string) {
 
 	key = strings.TrimSpace(key)
 	fmt.Println("Ключ пошуку:", key)
-	var mapData = indexmap.IndexMap(lines)
-	fmt.Println(mapData)
-	var result []int
-	for line, index := range mapData {
-		if strings.Contains(strings.ToLower(line), strings.ToLower(key)) {
-			result = append(index, result...)
-		}
-	}
+	index := indexmap.IndexMap(lines)
+	result := index.Search(key)
+
 	if len(result) > 0 {
 		fmt.Printf("Слово '%s' що ви шукаєте, знайдене в рядках: %v \n", key, result)
 	} else {
 		fmt.Printf("Слово '%s' не знайдено\n", key)
 	}
+
 }

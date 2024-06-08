@@ -5,7 +5,7 @@ import (
 	"mapfinder/search"
 )
 
-func main() {
-	key := scan.Scan()
-	search.Search(key)
+func Main() {
+	lines := scan.Scan()
+	search.Search(lines)
 }

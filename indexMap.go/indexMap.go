@@ -5,10 +5,10 @@ import "strings"
 func IndexMap(slice []string) map[string][]int {
 	var indexedMap = make(map[string][]int)
 
-	for index, item := range slice {
-		lines := strings.Fields(item)
+	for index, line := range slice {
+		words := strings.Fields(line)
 
-		for _, line := range lines {
+		for _, line := range words {
 			line = strings.ToLower(line)
 			indexedMap[line] = append(indexedMap[line], index+1)
 		}
